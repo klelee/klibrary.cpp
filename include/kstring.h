@@ -14,6 +14,7 @@ public:
     KString& operator=(const KString& str);
     ~KString();
 
+    friend KString operator+(const KString& str1, const KString& str2);
     friend std::ostream& operator<<(std::ostream& out, const KString& str);
 
     int get_length() const;

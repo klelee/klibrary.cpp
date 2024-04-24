@@ -42,13 +42,21 @@ KString::~KString() {
     }
 }
 
-
 char * KString::get_str() const {
     return m_pstr;
 }
 
 int KString::get_length() const {
     return m_length;
+}
+
+KString operator+(const KString& str1, const KString& str2)
+{
+    KString str;
+    str.m_length = str1.get_length() + str2.get_length();
+    str.m_pstr = new char[str.m_length + 1];
+    sprintf(str.m_pstr, "%s%s", str1.get_str(), str2.get_str());
+    return str;
 }
 
 /**
